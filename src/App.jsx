@@ -120,7 +120,7 @@ function App() {
           alignItems: 'center',
           marginTop: '25px',
           padding: '20px',
-          backgroundColor: '#ffffffdd',
+          backgroundColor:'rgb(255, 255, 255)',
           borderRadius: '12px',
           boxShadow: '0 4px 12px rgba(22, 21, 21, 0.1)',
         }}
