@@ -77,29 +77,30 @@ function App() {
     setDrawVisible(false);
   };
 
-const getBorderStyle = (index) => {
+  const getBorderStyle = (index) => {
     const style = {};
-    if (index < 3) style.borderTop = 'none';       // Top row
-    if (index > 5) style.borderBottom = 'none';    // Bottom row
-    if (index % 3 === 0) style.borderLeft = 'none'; // Left column
-    if (index % 3 === 2) style.borderRight = 'none';// Right column
+    if (index < 3) style.borderTop = 'none';
+    if (index > 5) style.borderBottom = 'none';
+    if (index % 3 === 0) style.borderLeft = 'none';
+    if (index % 3 === 2) style.borderRight = 'none';
     return style;
-};
+  };
+
   return (
     <div
       style={{
-        fontFamily: 'Arial, sans-serif',
+        backgroundImage: `url('/tic-tac-bg.jpg')`,
+        backgroundSize: 'cover',
+        backgroundPosition: 'center',
+        minHeight: '100vh',
         display: 'flex',
         flexDirection: 'column',
         alignItems: 'center',
-        margin: 0,
-        backgroundColor: '#f0f4f8',
-        minHeight: '100vh',
       }}
     >
       <nav
         style={{
-          background: '#3f51b9',
+          background: '#000',
           color: 'white',
           width: '100%',
           padding: '5px 0',
@@ -119,19 +120,20 @@ const getBorderStyle = (index) => {
           alignItems: 'center',
           marginTop: '25px',
           padding: '20px',
-          backgroundColor: '#fff',
+          backgroundColor: '#ffffffdd',
           borderRadius: '12px',
           boxShadow: '0 4px 12px rgba(22, 21, 21, 0.1)',
         }}
       >
-        <h1 style={{marginBottom: '16px', color: '#333' }}>Welcome to Tic Tac Toe</h1>
+        <h1 style={{ marginBottom: '16px', color: '#333' }}>
+          Welcome to Tic Tac Toe
+        </h1>
 
         <div
           style={{
             display: 'grid',
             gridTemplateColumns: 'repeat(3, 100px)',
             gridTemplateRows: 'repeat(3, 100px)',
-            
           }}
         >
           {board.map((val, idx) => (
@@ -147,7 +149,6 @@ const getBorderStyle = (index) => {
                 cursor: 'pointer',
                 backgroundColor: '#fafafa',
                 ...getBorderStyle(idx),
-                
               }}
               onMouseOver={(e) => {
                 if (!isGameOver && board[idx] === '') {
@@ -171,20 +172,19 @@ const getBorderStyle = (index) => {
             onClick={handleReset}
             style={{
               color: 'white',
-              backgroundColor: '#3f51b5',
+              backgroundColor: '#000',
               border: 'none',
               padding: '8px 20px',
               marginTop: '12px',
               borderRadius: '4px',
               fontSize: '1rem',
               cursor: 'pointer',
-
             }}
             onMouseOver={(e) => {
-              e.target.style.backgroundColor = '#2c387e';
+              e.target.style.backgroundColor = '#333';
             }}
             onMouseOut={(e) => {
-              e.target.style.backgroundColor = '#3f51b5';
+              e.target.style.backgroundColor = '#000';
             }}
           >
             Reset
